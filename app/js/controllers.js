@@ -4,15 +4,15 @@
 
 app.controller('blogCtrl', ['$scope', '$firebase','firebaseAuth', 'blogService', function($scope, $firebase, firebaseAuth, blogService) {
 	$scope.auth = firebaseAuth;
-	$scope.blogs = blogService.get;
+	$scope.blogs = blogService;
 	$scope.post = {};
 	$scope.mode = 'read';
 
 	$scope.reset = function(){
 		$scope.mode = 'read';
 		$scope.post = {
-			title: '新的部落格喔',
-			content: '我新增了一筆資料'
+			title: '',
+			content: ''
 		};
 	};
 
@@ -24,17 +24,11 @@ app.controller('blogCtrl', ['$scope', '$firebase','firebaseAuth', 'blogService',
 		}
 	};
 
-	$scope.modify = function(data){
-		$scope.mode = 'modify';
-		$scope.post = data;
-	};
-
-	$scope.confireChange = function(){
-		$scope.blogs.$update();
-	};
-
 	$scope.del = function(data){
-		$scope.blogs.$remove(data)
+		var index = $scope.blogs.$getIndex(data);
+		var child = $scope.blogs.$child(index[0]);
+
+		child.$remove();
 	};
 
 	$scope.reset();
