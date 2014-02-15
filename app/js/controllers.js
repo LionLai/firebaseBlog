@@ -6,10 +6,8 @@ app.controller('blogCtrl', ['$scope', '$firebase','firebaseAuth', 'blogService',
 	$scope.auth = firebaseAuth;
 	$scope.blogs = blogService;
 	$scope.post = {};
-	$scope.mode = 'read';
 
 	$scope.reset = function(){
-		$scope.mode = 'read';
 		$scope.post = {
 			title: '',
 			content: ''
