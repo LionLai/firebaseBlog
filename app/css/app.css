@@ -1,0 +1,14 @@
+/* app css stylesheet */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none;
+}
+
+.metrouicss .page {
+	width: 960px;
+	margin: auto;
+	background-color: #fff;
+}
+
+.tile {
+	padding : 10px;
+}

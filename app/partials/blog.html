@@ -1,0 +1,9 @@
+<div class="grid">
+	<input type="button" ng-click="add()" value= "add">
+	<div class="row">
+		<div class="tile " ng-repeat="blog in blogs">
+			<h2>{{blog.title}}</h2>
+			<p>{{blog.content}}</p>
+		</div>
+	</div>
+</div>
