@@ -1,9 +1,17 @@
 <div class="grid">
-	<input type="button" ng-click="add()" value= "add">
+<form >
+	title : <input type="text" ng-model="post.title">
+	content : <input type="text" ng-model="post.content">
+	<input ng-show="mode == 'read'" type="button" ng-click="add()" value= "加入">
+	<input ng-show="mode == 'modify'" type="button" ng-click="confireChange()" value= "確認修改">
+	<input type="button" ng-click="reset()" value= "取消">	
+</form>
 	<div class="row">
-		<div class="tile " ng-repeat="blog in blogs">
+		<div ng-repeat="blog in blogs">
 			<h2>{{blog.title}}</h2>
 			<p>{{blog.content}}</p>
+			<button ng-click="modify(blog)">修改</button>
+			<button ng-click="del(blog)">刪除</button>
 		</div>
 	</div>
 </div>

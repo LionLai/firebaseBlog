@@ -20,12 +20,12 @@
                 <li><a href="#/About">關於 ngBlog</a></li>
                 <li><a href="#/Communication">聯絡 ngBlog</a></li>
                 <li ng-controller="LoginCtrl">
-                  <span ng-switch="isLoggedIn()">
-                    <span class="fg-color-white" ng-switch-when="true">
-                      <span>歡迎回來! {{user.displayName}} <a class="place-right" ng-click="logout()">登出</a></span>
+                  <span>
+                    <span class="fg-color-white" ng-show="auth.user">
+                      <span>歡迎回來! {{auth.user.name}} <a class="place-right" ng-click="auth.$logout()">登出</a></span>
                     </span>
-                    <span class="fg-color-white" ng-switch-when="false">
-                      <a ng-click="login()">登入</a>
+                    <span class="fg-color-white" ng-hide="auth.user">
+                      <a ng-click="auth.$login('facebook')">登入</a>
                     </span>
                   </span>                  
                 </li>
