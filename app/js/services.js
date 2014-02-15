@@ -15,9 +15,6 @@ app.service('firebaseAuth', ['$rootScope', 'url', '$firebaseSimpleLogin', functi
 }]);
 
 app.service('blogService', ['$firebase', 'firebaseAuth', 'url', function($firebase, firebaseAuth, url){
-	var blog = {};
-	var ref = new Firebase(url);	
-
-	blog.get = $firebase(ref);
-	return blog;
+	var ref = new Firebase(url);
+	return $firebase(ref);;
 }]);
